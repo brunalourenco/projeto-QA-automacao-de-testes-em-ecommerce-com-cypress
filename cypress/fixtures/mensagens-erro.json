@@ -1,0 +1,5 @@
+{
+  "erro_nome_usuario_vazio": "Epic sadface: Username is required",
+  "erro_senha_vazia": "Epic sadface: Password is required",
+  "erro_dados_login_nao_cadastrados": "Epic sadface: Username and password do not match any user in this service"
+}
