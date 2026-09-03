@@ -4,8 +4,9 @@
 
 export default {
   acessar_pagina_inicial() {
-    (cy.visit("/"),
+    cy.visit("/")
       //confirma se a página de login carregou
-      cy.get(".login_logo").should("be.visible"));
+      .get(".login_logo")
+      .should("be.visible");
   },
 };

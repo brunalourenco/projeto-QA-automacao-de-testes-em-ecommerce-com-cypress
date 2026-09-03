@@ -25,26 +25,39 @@ describe("Carrinho", () => {
   });
 
   it("Adicionar 02 produtos", () => {
-    (carrinho.adicionar_produto(0),
-      carrinho.adicionar_produto(1),
-      carrinho.checar_quantidade_produto(2));
+    carrinho.adicionar_produto(0);
+    carrinho.adicionar_produto(1);
+    carrinho.checar_quantidade_produto(2);
   });
 
   it("Remover 01 produto", () => {
-    cy.get(".btn_inventory").first().click();
-    cy.get(".shopping_cart_link").click();
-    cy.get(".cart_button").click(); //remove item
-    cy.get(".shopping_cart_badge").should("not.exist"); //validada se a qtde produtos aparece no icone do carrinho
+    carrinho.adicionar_produto(0);
+    carrinho.checar_quantidade_produto(1);
+    carrinho.acessar_carrinho();
+    carrinho.remover_produto(0);
   });
 
-  it("Remover 02 produtos", () => {});
+  it("Remover 02 produtos", () => {
+    carrinho.adicionar_produto(0);
+    carrinho.adicionar_produto(1);
 
-  it("Carrinho vazio", () => {});
+    carrinho.checar_quantidade_produto(2);
+    carrinho.acessar_carrinho();
+
+    carrinho.remover_produto(0);
+    carrinho.checar_quantidade_produto(1);
+
+    carrinho.remover_produto(0);
+    carrinho.checar_carrinho_vazio();
+  });
+
+  it("Carrinho vazio", () => {
+    carrinho.checar_carrinho_vazio();
+  });
 
   it("Continuar comprando", () => {
-    cy.get(".btn_inventory").first().click();
-    cy.get(".shopping_cart_badge ").should("have.text", "1");
-    cy.get(".shopping_cart_link").click();
-    cy.get("#continue-shopping").click();
+    carrinho.adicionar_produto(0);
+    carrinho.checar_quantidade_produto(1);
+    carrinho.continuar_comprando();
   });
 });
