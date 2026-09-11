@@ -44,11 +44,10 @@ export default {
       .should("have.text", mensagem);
   },
 
-  verificar_url_pagina_produtos() {
-    cy.url().should("include", "/inventory.html");
-  },
-
   verificar_pagina_produtos_carregou() {
-    cy.get(".title").should("have.text", elementos.titulo_pagina.produtos);
+    cy.url()
+      .should("include", "/inventory.html")
+      .get(".title")
+      .should("have.text", elementos.titulo_pagina.produtos);
   },
 };

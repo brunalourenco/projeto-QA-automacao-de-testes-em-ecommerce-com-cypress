@@ -18,7 +18,6 @@ describe("Login", () => {
     login.preencher_nome_usuario(usuario.nome_padrao);
     login.preencher_senha_usuario(usuario.senha_padrao);
     login.efetuar_login();
-    login.verificar_url_pagina_produtos();
     login.verificar_pagina_produtos_carregou();
   });
 

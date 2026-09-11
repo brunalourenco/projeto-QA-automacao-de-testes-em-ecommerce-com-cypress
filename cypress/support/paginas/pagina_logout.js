@@ -14,13 +14,16 @@ const elementos = {
 // ações/métodos/funções
 
 export default {
-  logout() {
-    cy.get(elementos.botoes.btn_logout).should("be.visible").click();
-    cy.get(elementos.opcao.logout)
+  encerrar_acesso_aplicacao() {
+    cy.get(elementos.botoes.btn_logout)
+      .should("be.visible")
+      .click()
+      .get(elementos.opcao.logout)
       .should("be.visible")
       .and("contain", "Logout")
-      .click();
-    cy.url().should("eq", "https://www.saucedemo.com/");
+      .click()
+      .url()
+      .should("eq", "https://www.saucedemo.com/");
 
     // validar se apos o logout ao passar a rota inventory.html redireciona para pagina de produtos
   },
