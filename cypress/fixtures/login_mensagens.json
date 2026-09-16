@@ -1,0 +1,6 @@
+{
+  "nome_vazio": "Epic sadface: Username is required",
+  "email_vazio": "Epic sadface: Username is required'",
+  "senha_vazia": "Epic sadface: Password is required",
+  "credenciais_invalidas": "Epic sadface: Username and password do not match any user in this service"
+}

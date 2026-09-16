@@ -6,12 +6,5 @@
   "sobrenome_invalido": "Silv@12",
 
   "cep_valido": "34000-000",
-  "cep_invalido": "1a3654-85@2",
-
-  "erro_nome_vazio": "Error: First Name is required",
-  "erro_sobrenome_vazio": "Error: Last Name is required",
-  "erro_cep_vazio": "Error: Postal Code is required",
-
-  "titulo_compra_concluida": "Thank you for your order!",
-  "subtitulo_compra_concluida": "Your order has been dispatched, and will arrive just as fast as the pony can get there!"
+  "cep_invalido": "1a3654-85@2"
 }

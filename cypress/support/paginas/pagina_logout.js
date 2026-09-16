@@ -3,7 +3,7 @@
 // variável para armazenar nomes dos campos da página HTML
 const elementos = {
   botoes: {
-    btn_logout: "#react-burger-menu-btn",
+    btn_menu: "#react-burger-menu-btn",
   },
   opcao: {
     logout: "#logout_sidebar_link",
@@ -15,16 +15,15 @@ const elementos = {
 
 export default {
   encerrar_acesso_aplicacao() {
-    cy.get(elementos.botoes.btn_logout)
-      .should("be.visible")
-      .click()
-      .get(elementos.opcao.logout)
+    cy.get(elementos.botoes.btn_menu).should("be.visible").click();
+
+    cy.get(elementos.opcao.logout)
       .should("be.visible")
       .and("contain", "Logout")
-      .click()
-      .url()
-      .should("eq", "https://www.saucedemo.com/");
+      .click();
 
-    // validar se apos o logout ao passar a rota inventory.html redireciona para pagina de produtos
+    cy.url().should("eq", "https://www.saucedemo.com/"); // verifica se retorna para página de login
+
+    cy.url().should("not.include", "/inventory"); //verifica se não retorna para pagina de produtos
   },
 };

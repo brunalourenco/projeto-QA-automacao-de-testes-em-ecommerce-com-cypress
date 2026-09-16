@@ -1,0 +1,8 @@
+{
+  "erro_nome_vazio": "Error: First Name is required",
+  "erro_sobrenome_vazio": "Error: Last Name is required",
+  "erro_cep_vazio": "Error: Postal Code is required",
+  "erro_carrinho_vazio": "Error: empty cart",
+  "titulo_compra_concluida": "Thank you for your order!",
+  "subtitulo_compra_concluida": "Your order has been dispatched, and will arrive just as fast as the pony can get there!"
+}

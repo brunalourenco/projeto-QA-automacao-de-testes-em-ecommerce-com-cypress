@@ -3,6 +3,7 @@
 // import de dados estáticos de login
 const usuario = require("../fixtures/dados_usuario.json");
 const dados_checkout = require("../fixtures/dados_checkout.json");
+const mensagens_checkout = require("../fixtures/checkout_mensagens.json");
 
 //import de ações/métodos/funções
 import pagina_inicial from "../support/paginas/pagina_inicial";
@@ -11,6 +12,30 @@ import carrinho from "../support/paginas/pagina_carrinho";
 import checkout from "../support/paginas/pagina_checkout";
 
 describe("Checkout", () => {
+  it("Compra com carrinho vazio", () => {
+    pagina_inicial.acessar_pagina_inicial();
+
+    //login com sucesso
+    login.preencher_nome_usuario(usuario.nome_padrao);
+    login.preencher_senha_usuario(usuario.senha_padrao);
+    login.efetuar_login();
+    login.verificar_pagina_produto_carregou();
+
+    // validar carrinho
+
+    carrinho.checar_carrinho_vazio();
+    carrinho.acessar_carrinho();
+    checkout.conferir_compra();
+    checkout.preencher_nome(dados_checkout.nome_valido);
+    checkout.preencher_sobrenome(dados_checkout.sobrenome_valido);
+    checkout.preencher_cep(dados_checkout.cep_valido);
+    checkout.exibir_resumo_compra();
+    checkout.finalizar_compra();
+    checkout.exibir_mensagem_erro_carrinho_vazio(
+      mensagens_checkout.erro_carrinho_vazio,
+    );
+  }); // corrigir
+
   beforeEach(() => {
     pagina_inicial.acessar_pagina_inicial();
 
@@ -18,28 +43,77 @@ describe("Checkout", () => {
     login.preencher_nome_usuario(usuario.nome_padrao);
     login.preencher_senha_usuario(usuario.senha_padrao);
     login.efetuar_login();
-    login.verificar_pagina_produtos_carregou();
+    login.verificar_pagina_produto_carregou();
+
+    // adiciona 01 item no carrinho
+    carrinho.adicionar_produto(0);
+    carrinho.acessar_carrinho();
+    checkout.conferir_compra();
   });
 
-  it.only("Compra com carrinho vazio", () => {
-    carrinho.acessar_carrinho();
-    carrinho.checar_carrinho_vazio();
-    checkout.conferir_compra();
+  it("Compra com sucesso", () => {
     checkout.preencher_nome(dados_checkout.nome_valido);
     checkout.preencher_sobrenome(dados_checkout.sobrenome_valido);
     checkout.preencher_cep(dados_checkout.cep_valido);
     checkout.exibir_resumo_compra();
-    checkout.finalizar_compra(
-      dados_checkout.titulo_compra_concluida,
-      dados_checkout.subtitulo_compra_concluida,
+    checkout.finalizar_compra();
+    checkout.exibir_mensagem_compra_concluida(
+      mensagens_checkout.titulo_compra_concluida,
+      mensagens_checkout.subtitulo_compra_concluida,
     );
   });
 
-  it("Compra com sucesso", () => {});
-  it("Compra com nome do cliente vazio", () => {});
-  it("Compra com nome do cliente inválido", () => {});
-  it("Compra com sobrenome do cliente vazio", () => {});
-  it("Compra com CEP do cliente vazio", () => {});
-  it("Compra com CEP do cliente inválido", () => {});
-  it("Cancelar checkout", () => {});
+  it.only("Compra com nome do cliente vazio", () => {
+    checkout.preencher_sobrenome(dados_checkout.sobrenome_valido);
+    checkout.preencher_cep(dados_checkout.cep_valido);
+    checkout.exibir_resumo_compra();
+    checkout.finalizar_compra();
+    checkout.exibir_mensagem_erro_credenciais(
+      mensagens_checkout.erro_nome_vazio,
+    );
+  });
+
+  it("Compra com nome do cliente inválido", () => {
+    checkout.preencher_nome(dados_checkout.nome_invalido);
+    checkout.preencher_sobrenome(dados_checkout.sobrenome_valido);
+    checkout.preencher_cep(dados_checkout.cep_valido);
+    checkout.exibir_resumo_compra();
+    checkout.finalizar_compra();
+    checkout.exibir_mensagem_erro_credenciais(mensagens_checkout.erro_); //terminar
+  });
+
+  it("Compra com sobrenome do cliente vazio", () => {
+    checkout.preencher_nome(dados_checkout.nome_valido);
+    checkout.preencher_cep(dados_checkout.cep_valido);
+    checkout.exibir_resumo_compra();
+    checkout.finalizar_compra();
+    checkout.exibir_mensagem_erro_credenciais(
+      mensagens_checkout.erro_sobrenome_vazio,
+    );
+  });
+
+  it("Compra com CEP do cliente vazio", () => {
+    checkout.preencher_nome(dados_checkout.nome_valido);
+    checkout.preencher_sobrenome(dados_checkout.sobrenome_valido);
+    checkout.exibir_resumo_compra();
+    checkout.finalizar_compra();
+    checkout.exibir_mensagem_erro_credenciais(
+      mensagens_checkout.erro_cep_vazio,
+    );
+  });
+
+  it("Compra com CEP do cliente inválido", () => {
+    checkout.preencher_nome(dados_checkout.nome_valido);
+    checkout.preencher_sobrenome(dados_checkout.sobrenome_valido);
+    checkout.preencher_cep(dados_checkout.cep_invalido);
+    checkout.exibir_resumo_compra();
+    checkout.finalizar_compra();
+    checkout.exibir_mensagem_erro_credenciais(
+      mensagens_checkout.erro_cep_vazio,
+    );
+  });
+
+  it("Cancelar checkout", () => {
+    checkout.voltar_para_carrinho();
+  });
 });

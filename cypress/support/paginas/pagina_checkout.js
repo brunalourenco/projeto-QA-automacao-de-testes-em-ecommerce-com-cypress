@@ -18,10 +18,10 @@ const elementos = {
   },
 
   mensagens: {
+    erro_credencias: ".error",
     erro_dados_entrega_faltante: "error-message",
-    titulo_compra_concluida: "#checkout_complete_container > h2",
-    subtitulo_compra_concluida:
-      "#checkout_complete_container > div.complete-text",
+    titulo_compra_concluida: ".complete-header",
+    subtitulo_compra_concluida: ".complete-text",
   },
   urls: {
     carrinho: "cart.html",
@@ -52,19 +52,13 @@ export default {
   },
 
   exibir_resumo_compra() {
-    //cy.url().should("include", elementos.urls.completar_checkout);
     cy.get(elementos.botoes.confirmar_dados_entrega).click();
+    //cy.url().should("include", elementos.urls.completar_checkout); //estava com erro
   },
 
   finalizar_compra(titulo, subtitulo) {
     cy.get(elementos.botoes.concluir_compra).click();
     cy.url().should("include", elementos.urls.concluir_compra);
-    cy.get(elementos.mensagens.titulo_compra_concluida)
-      .should("be.visible")
-      .eq(titulo);
-    cy.get(elementos.mensagens.subtitulo_compra_concluida)
-      .should("be.visible")
-      .eq(subtitulo);
   },
 
   gerar_comprovante_pdf() {
@@ -75,7 +69,25 @@ export default {
     cy.get(elementos.botoes.voltar_para_produtos).click();
     cy.url().should("include", elementos.urls.produtos);
   },
-  exibir_mensagem_compra_concluida() {
-    //terminar
+  exibir_mensagem_compra_concluida(titulo, subtitulo) {
+    cy.get(elementos.mensagens.titulo_compra_concluida)
+      .should("be.visible")
+      .and("have.text", titulo);
+
+    cy.get(elementos.mensagens.subtitulo_compra_concluida)
+      .should("be.visible")
+      .and("have.text", subtitulo);
+  },
+
+  exibir_mensagem_erro_credenciais(mensagem) {
+    cy.get(elementos.mensagens.erro_credencias)
+      .should("be.visible")
+      .and("have.text", mensagem);
+  },
+
+  exibir_mensagem_erro_carrinho_vazio() {
+    cy.get("#cart_contents_container")
+      .should("be.visible")
+      .and("have.text", "erro_carrinho_vazio");
   },
 };

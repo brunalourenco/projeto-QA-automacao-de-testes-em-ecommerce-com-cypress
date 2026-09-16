@@ -38,16 +38,16 @@ export default {
     cy.get(elementos.botoes.btn_login).should("be.visible").click();
   },
 
-  verificar_mensagem_de_erro(mensagem) {
-    cy.get(elementos.mensagens.erro)
-      .should("be.visible")
-      .should("have.text", mensagem);
-  },
-
-  verificar_pagina_produtos_carregou() {
+  verificar_pagina_produto_carregou() {
     cy.url()
       .should("include", "/inventory.html")
       .get(".title")
       .should("have.text", elementos.titulo_pagina.produtos);
+  },
+
+  verificar_mensagem_de_erro(mensagem) {
+    cy.get(elementos.mensagens.erro)
+      .should("be.visible")
+      .and("have.text", mensagem);
   },
 };
