@@ -68,7 +68,7 @@ export default {
     cy.get(elementos.botoes.confirmar_dados_entrega).click();
   },
 
-  finalizar_compra(titulo, subtitulo) {
+  finalizar_compra() {
     cy.url().should("include", elementos.urls.completar_checkout); //estava com erro
     cy.get(elementos.botoes.concluir_compra).click();
   },

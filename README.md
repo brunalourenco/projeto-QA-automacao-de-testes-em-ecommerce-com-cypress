@@ -2,11 +2,9 @@
 
 # Objetivo
 
-Projeto pessoal de automação de testes end-to-end (E2E) utilizando Cypress no e-commerce Sauce Demo, que é uma aplicação web fitícia e de acesso gratuita, sendo desenvolvida para prática de testes de software.
+Avaliar o comportamento do ecommerce Sauce Demo, que é uma aplicação gratuita para testes.
 
 ## Estrutura do projeto
-
-DESCREVER
 
 ## Tecnologias utilizadas
 
@@ -29,27 +27,25 @@ DESCREVER
 | Produto   |   ✅   |      ❌      |
 | **Total** | **5**  |    **4**     |
 
-## Bug Report
-
 ## Recursos utilizados
 
 - Funções
-- cy.session()
 - Fixtures
 - Assertions
 - beforeEach()
+- Relatório mochawasome
 - Testes positivos e negativos
 
 ## Métricas do projeto
 
-Casos de teste criados: 24
-Bugs encontrados: 03
-Funcionalidades testadas: 05
-Tipo de testes: Manual / Exploratório / Automatizado / E2E
+- Casos de teste criados: 25
+- Bugs encontrados: 04
+- Funcionalidades testadas: 05
+- Tipo de testes: Manual / Exploratório / Automatizado / E2E
 
 ---
 
-Casos de testes automatizados: 20
+Casos de testes automatizados: 21
 Funcionalidades automatizadas: 04
 
 ## Artefatos produzidos
@@ -61,4 +57,9 @@ Automações -> scripts em cypress
 Evidências -> imagens de testes executados
 
 ## Como executar o projeto
-descrever - tipo texto de como iniciar projeto em cypress
+
+- É necessário instalar o Node JS no pc, porque é ele quem gerencia e roda o Cypress
+- Na pasta do Projeto, no terminal do VS Code, inicie o Node JS com o comando `npm init -y`
+- Após instalar o pacote do Cypress, com ``npm install cypress`
+- Para abrir digitenpx cypress open `npx cypress open`
+- Irá abrir a tela de navegação do Cypress, utilizada para visualizar a execução dos testes e status.

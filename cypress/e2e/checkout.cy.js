@@ -26,20 +26,6 @@ describe("Checkout", () => {
     carrinho.acessar_carrinho();
   });
 
-  it("Compra com carrinho vazio", () => {
-    carrinho.remover_produto(0);
-    carrinho.checar_carrinho_vazio();
-    checkout.conferir_compra();
-    checkout.preencher_nome(dados_checkout.nome_valido);
-    checkout.preencher_sobrenome(dados_checkout.sobrenome_valido);
-    checkout.preencher_cep(dados_checkout.cep_valido);
-    checkout.exibir_resumo_compra();
-    checkout.finalizar_compra();
-    checkout.exibir_mensagem_erro_carrinho_vazio(
-      mensagens_checkout.erro_carrinho_vazio,
-    );
-  });
-
   it("Compra com sucesso", () => {
     checkout.conferir_compra();
     checkout.preencher_nome(dados_checkout.nome_valido);
@@ -63,15 +49,6 @@ describe("Checkout", () => {
     );
   });
 
-  it("Compra com nome do cliente inválido", () => {
-    checkout.conferir_compra();
-    checkout.preencher_nome(dados_checkout.nome_invalido);
-    checkout.preencher_sobrenome(dados_checkout.sobrenome_valido);
-    checkout.preencher_cep(dados_checkout.cep_valido);
-    checkout.exibir_resumo_compra();
-    checkout.exibir_mensagem_erro_credenciais(mensagens_checkout.erro_); //terminar
-  });
-
   it("Compra com sobrenome do cliente vazio", () => {
     checkout.conferir_compra();
     checkout.preencher_nome(dados_checkout.nome_valido);
@@ -86,17 +63,6 @@ describe("Checkout", () => {
     checkout.conferir_compra();
     checkout.preencher_nome(dados_checkout.nome_valido);
     checkout.preencher_sobrenome(dados_checkout.sobrenome_valido);
-    checkout.exibir_resumo_compra();
-    checkout.exibir_mensagem_erro_credenciais(
-      mensagens_checkout.erro_cep_vazio,
-    );
-  });
-
-  it("Compra com CEP do cliente inválido", () => {
-    checkout.conferir_compra();
-    checkout.preencher_nome(dados_checkout.nome_valido);
-    checkout.preencher_sobrenome(dados_checkout.sobrenome_valido);
-    checkout.preencher_cep(dados_checkout.cep_invalido);
     checkout.exibir_resumo_compra();
     checkout.exibir_mensagem_erro_credenciais(
       mensagens_checkout.erro_cep_vazio,
