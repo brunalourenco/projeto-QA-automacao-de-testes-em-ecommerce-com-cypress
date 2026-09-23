@@ -6,7 +6,7 @@ Projeto pessoal de QA voltado para testes manuais, funcionais e exploratórios e
 
 O objetivo é validar os principais fluxos de uma loja virtual, identificar defeitos e demonstrar a automação dos cenários mais relevantes.
 
-Para isso, foram testados os fluxos de login, logout, carrinho, produto e checkout e sendo desconsideradas ordenação de produtos por nome, por preço e também a validação de valores de produtos no carrinho.
+Para isso, foram testados os fluxos de login, logout, carrinho, produto e checkout e sendo desconsideradas ordenação de produtos por nome, por preço e também a validação de valores de produtos no carrinho por estarem fora do escopo desse projeto.
 
 ## Métricas do projeto por técnica de testes
 
@@ -17,7 +17,11 @@ Para isso, foram testados os fluxos de login, logout, carrinho, produto e checko
 |Casos de teste    |    25    |      21      |
 | Cobertura de testes| 100% |   84%    |
 
+ Em relação a cobertura de 84% trata-se de a 21 de 25 casos de teste documentados.
+ 
+Já os bugs encontrados em testes manuais, 03 são mensagens de validação de dados em formato inválidos no checkout que não foram implementadas e assim não apresentam mensagem de erro e por isso não foram automatizadas e o outro bug é referente a conclusão de compra com carrinho vazio, o sistema segue o fluxo normalmente e não exibida mensagem de erro de carrinho vazio, dessa forma não viável automatizar esse cenário de teste.
 
+   
 ## Estrutura do projeto
 
 ![Estrutura do projeto](./docs/imagens/estrutura/estrutura-projeto.png)
@@ -45,13 +49,12 @@ Para isso, foram testados os fluxos de login, logout, carrinho, produto e checko
 
 ## Recursos utilizados
 
-- Funções
-- Fixtures
-- Assertions
-- beforeEach()
-- Relatório mochawasome
-- Testes positivos e negativos
-- Testes BVA para validação de carrinho e CEP
+- Funções -> para reutilzação de código
+- Fixtures -> para manter dados estáticos/fixos para garantir maior consistência nos testes aplicados;
+- Assertions -> para validar dados esperados x dados exibidos em determinada funcionalidade;
+- beforeEach() -> para reutilização de código e executar uma única vez ações necessários para iniciar funções específicas;
+- Relatório mochawasome -> para visualizar os resultados dos testes
+- Page Objects -> para organizar scripts, separando código de elementos da aplicação e facilitar manutenção posteriormente.
 
 ## Artefatos produzidos
 
