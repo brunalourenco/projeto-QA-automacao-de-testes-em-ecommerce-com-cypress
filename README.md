@@ -2,11 +2,12 @@
 
 # Objetivo
 
-Projeto pessoal de QA voltado para testes manuais, funcionais e exploratórios e automatizados E2E utilizando Cypress em uma aplicação de e-commerce (Sauce Demo). Totalizando 25 casos de testes e 04 bugs encontrados.
+Projeto pessoal de QA voltado para testes manuais, funcionais, exploratórios e automatizados E2E utilizando Cypress em uma aplicação de e-commerce (Sauce Demo). Ao todo foram elaborados 25 casos de testes e encontrados 04 bugs.
 
 O objetivo é validar os principais fluxos de uma loja virtual, identificar defeitos e demonstrar a automação dos cenários mais relevantes.
 
-Para isso, foram testados os fluxos de login, logout, carrinho, produto e checkout e sendo desconsideradas ordenação de produtos por nome, por preço e também a validação de valores de produtos no carrinho por estarem fora do escopo desse projeto.
+Para isso, foram testados os fluxos de login, logout, carrinho, produto e checkout e foram desconsiderados os fluxos de validações de valores de produtos no carrinho por estarem fora do escopo desse projeto.
+
 
 ## Métricas do projeto por técnica de testes
 
@@ -17,7 +18,12 @@ Para isso, foram testados os fluxos de login, logout, carrinho, produto e checko
 |Casos de teste    |    25    |      21      |
 | Cobertura de testes| 100% |   84%    |
 
- Em relação a cobertura de 84% trata-se de a 21 de 25 casos de teste documentados. Já os 04 bugs encontrados em testes manuais, 03 são mensagens de validação de dados em formato inválidos no checkout que não foram implementadas e assim não apresentam mensagem de erro e por isso não foram automatizadas e o outro bug é referente a conclusão de compra com carrinho vazio, o sistema segue o fluxo normalmente e não é exibida mensagem de erro de carrinho vazio, dessa forma foi não viável automatizar esse cenário de teste.
+Em relação a cobertura de 84% trata-se de 21 de 25 casos de teste documentados.
+
+
+## Bugs encontrados
+
+Dos 04 bugs encontrados em testes manuais, 03 são mensagens de validação de dados em formato inválidos no checkout que não foram implementadas e assim não apresentam mensagem de erro e por isso não foram automatizadas e o outro bug é referente a conclusão de compra com carrinho vazio, o sistema segue o fluxo normalmente e não é exibida mensagem de erro de carrinho vazio, dessa forma foi não viável automatizar esse cenário de teste.
 
    
 ## Estrutura do projeto
@@ -27,12 +33,12 @@ Para isso, foram testados os fluxos de login, logout, carrinho, produto e checko
 ## Tecnologias utilizadas
 
 - Cypress
-- Node JS
+- Node.js
 - Google Chrome
 - Excel
 - VS Code
 - Gitub
-- Screen to gif
+- ScreenToGif
 
 ## Funcionalidades testadas por técnica de teste
 
@@ -45,6 +51,8 @@ Para isso, foram testados os fluxos de login, logout, carrinho, produto e checko
 | Produto       |    ✅    |      ❌      |
 | Total   |  **05**   |    **04**     |
 
+No cenário Produto constam testes de ordenação de produtos por nome e preço, os fluxos dessas demandas não foram automatizados por 
+estarem em fora do escopo proposto para automações desse projeto.
 
 ## Recursos utilizados
 
@@ -68,9 +76,11 @@ Para isso, foram testados os fluxos de login, logout, carrinho, produto e checko
 
 Na pasta do projeto com o terminal aberto
 
-- Para rodar o Cypress, instale o Node JS com o comando ``npm install``
-- Para abrir o cypress digite `npx cypress open`
-- Irá abrir a tela de navegação do Cypress, utilizada para visualizar a execução dos testes e status.
+- Necessário Node.js instalado;
+- Executar no terminal o comando, para instalar dependências do projeto -> ``npm install``
+- Para abrir o cypress digite `npx cypress open``
+- Irá abrir a tela de navegação do Cypress, utilizada para visualizar a execução dos testes e status
+  
 
 ## Execução dos testes automatizados - vídeo
 O vídeo mostra a execução de testes automatizados, desde o VS Code onde foram gerados os scripts, a execução no Cypress e no navegador Google Chrome onde a automação dos testes é feita por funcionalidade mostrando na tela o preenchimento com dados configurados, cliques e os fluxos acontecendo, simulando a utilização da aplicação por um usuário.
@@ -97,7 +107,7 @@ Print da tela de script com funções e imports necessários para execução dos
 Print da tela de script com funções e imports necessários para execução dos testes para encerrar acesso a área logada<br><br>
 ![Logout](./docs/imagens/codigo/logout.png) <br><br><br>
 
-#### Relatório Mochawasome (testes automatizados)
+#### Relatório Mochawesome (testes automatizados)
 Relatório dos testes executados
 ![Relatório de testes automatizados](./docs/imagens/relatorio/reports.png) <br><br><br>
 
