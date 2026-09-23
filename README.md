@@ -66,7 +66,7 @@ Para isso, foram testados os fluxos de login, logout, carrinho, produto e checko
 
 Na pasta do projeto com o terminal aberto
 
-- Para rodar o Cypress, instale o Node JS com o comando ``npm install`
+- Para rodar o Cypress, instale o Node JS com o comando ``npm install``
 - Como as dependências já foram configuradas anteriormente, não é necessário instalar o cypress
 - Para abrir o cypress digite `npx cypress open`
 - Irá abrir a tela de navegação do Cypress, utilizada para visualizar a execução dos testes e status.
