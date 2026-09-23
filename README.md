@@ -78,7 +78,7 @@ Na pasta do projeto com o terminal aberto
 
 - Necessário Node.js instalado;
 - Executar no terminal o comando, para instalar dependências do projeto -> ``npm install``
-- Para abrir o cypress digite `npx cypress open``
+- Para abrir o cypress digite ``npx cypress open``
 - Irá abrir a tela de navegação do Cypress, utilizada para visualizar a execução dos testes e status
   
 
