@@ -17,9 +17,7 @@ Para isso, foram testados os fluxos de login, logout, carrinho, produto e checko
 |Casos de teste    |    25    |      21      |
 | Cobertura de testes| 100% |   84%    |
 
- Em relação a cobertura de 84% trata-se de a 21 de 25 casos de teste documentados.
- 
-Já os bugs encontrados em testes manuais, 03 são mensagens de validação de dados em formato inválidos no checkout que não foram implementadas e assim não apresentam mensagem de erro e por isso não foram automatizadas e o outro bug é referente a conclusão de compra com carrinho vazio, o sistema segue o fluxo normalmente e não exibida mensagem de erro de carrinho vazio, dessa forma não viável automatizar esse cenário de teste.
+ Em relação a cobertura de 84% trata-se de a 21 de 25 casos de teste documentados. Já os 04 bugs encontrados em testes manuais, 03 são mensagens de validação de dados em formato inválidos no checkout que não foram implementadas e assim não apresentam mensagem de erro e por isso não foram automatizadas e o outro bug é referente a conclusão de compra com carrinho vazio, o sistema segue o fluxo normalmente e não é exibida mensagem de erro de carrinho vazio, dessa forma foi não viável automatizar esse cenário de teste.
 
    
 ## Estrutura do projeto
@@ -30,6 +28,7 @@ Já os bugs encontrados em testes manuais, 03 são mensagens de validação de d
 
 - Cypress
 - Node JS
+- Google Chrome
 - Excel
 - VS Code
 - Gitub
@@ -49,10 +48,10 @@ Já os bugs encontrados em testes manuais, 03 são mensagens de validação de d
 
 ## Recursos utilizados
 
-- Funções -> para reutilzação de código
+- Funções -> para reutilização de código e manutenabilidade posteriormente;
 - Fixtures -> para manter dados estáticos/fixos para garantir maior consistência nos testes aplicados;
-- Assertions -> para validar dados esperados x dados exibidos em determinada funcionalidade;
-- beforeEach() -> para reutilização de código e executar uma única vez ações necessários para iniciar funções específicas;
+- Assertions -> para validar dados esperados x dados exibidos em determinadas ações no sistema;
+- beforeEach() -> para reutilização de código e executar uma única vez, ações necessários para iniciar funções específicas;
 - Relatório mochawasome -> para visualizar os resultados dos testes
 - Page Objects -> para organizar scripts, separando código de elementos da aplicação e facilitar manutenção posteriormente.
 
@@ -70,33 +69,38 @@ Já os bugs encontrados em testes manuais, 03 são mensagens de validação de d
 Na pasta do projeto com o terminal aberto
 
 - Para rodar o Cypress, instale o Node JS com o comando ``npm install``
-- Como as dependências já foram configuradas anteriormente, não é necessário instalar o cypress
 - Para abrir o cypress digite `npx cypress open`
 - Irá abrir a tela de navegação do Cypress, utilizada para visualizar a execução dos testes e status.
 
 ## Execução dos testes automatizados - vídeo
+O vídeo mostra a execução de testes automatizados, desde o VS Code onde foram gerados os scripts, a execução no Cypress e no navegador Google Chrome onde a automação dos testes é feita por funcionalidade mostrando na tela o preenchimento com dados configurados, cliques e os fluxos acontecendo, simulando a utilização da aplicação por um usuário.
 
-![Vídeo de execução de testes automatizados](./docs/video/Projeto-QA-Ecommerce-testes-automatizados.gif) <br><br>
+![Vídeo de execução de testes automatizados](./docs/video/Projeto-QA-Ecommerce-testes-automatizados.gif) <br><br><br>
 
-## Prints do projeto
+## Prints do projeto <br>
 
-#### Casos de teste
-
+#### Casos de teste <br>
+Descreve passo a passo para a execução dos testes manuais e automatizados.<br><br>
 ![Casos de teste](./docs/imagens/casos%20de%20teste/casos%20de%20testes.png) <br><br>
 
 #### Testes automatizados de funcionalidades
 **Login**
-![Login](./docs/imagens/codigo/login.png) <br>
+Print da tela de script com funções e imports necessários para execução dos testes de login<br><br>
+![Login](./docs/imagens/codigo/login.png) <br><br><br>
 **Carrinho**
-![Carrinho](./docs/imagens/codigo/carrinho.png) <br>
+Print da tela de script com funções e imports necessários para execução dos testes de carrinho<br><br>
+![Carrinho](./docs/imagens/codigo/carrinho.png) <br><br><br>
 **Checkout**
-![Checkout](./docs/imagens/codigo/checkout.png) <br>
+Print da tela de script com funções e imports necessários para execução dos testes de checkout<br><br>
+![Checkout](./docs/imagens/codigo/checkout.png) <br><br><br>
 **Logout**
-![Logout](./docs/imagens/codigo/logout.png) <br><br>
+Print da tela de script com funções e imports necessários para execução dos testes para encerrar acesso a área logada<br><br>
+![Logout](./docs/imagens/codigo/logout.png) <br><br><br>
 
 #### Relatório Mochawasome (testes automatizados)
-![Relatório de testes automatizados](./docs/imagens/relatorio/reports.png) <br><br>
+Relatório dos testes executados
+![Relatório de testes automatizados](./docs/imagens/relatorio/reports.png) <br><br><br>
 
 #### Bug Report
-
+Planilha com os bugs encontrados, os prints dos erros encontram-se no artefato evidências, organizados de acordo com as ids dessa planilha<br>
 ![Bug report](./docs/imagens/relatorio/bug-report.png) <br><br>
